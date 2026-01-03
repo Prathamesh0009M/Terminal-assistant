@@ -3,7 +3,7 @@ const { prompt } = require("inquirer");
 const { fetchPRs, fetchPRDetails, fetchPRFiles } = require("../github/githubService");
 const open = require("open");
 const exec = require("child_process").exec;
-const { checkoutPR } = require("../git/gitService");
+const {checkoutPR} = require("../git/gitService");
 
 async function prCommand() {
     console.log(blue("Fetching open PRs..."));
@@ -114,3 +114,6 @@ async function prCommand() {
 }
 
 module.exports = { prCommand };
+
+
+
