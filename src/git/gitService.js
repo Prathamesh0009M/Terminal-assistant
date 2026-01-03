@@ -3,6 +3,7 @@ const simpleGit = require("simple-git");
 const git = simpleGit(process.cwd());
 
 async function checkoutPR(prNumber) {
+    
   const branchName = `pr-${prNumber}`;
 
   try {
