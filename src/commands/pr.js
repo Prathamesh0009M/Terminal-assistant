@@ -3,6 +3,7 @@ const { prompt } = require("inquirer");
 const { fetchPRs, fetchPRDetails, fetchPRFiles } = require("../github/githubService");
 const open = require("open");
 const exec = require("child_process").exec;
+const { checkoutPR } = require("../git/gitService");
 
 async function prCommand() {
     console.log(blue("Fetching open PRs..."));
@@ -40,9 +41,17 @@ async function prCommand() {
             choices: [
                 { name: "View PR details", value: "details" },
                 { name: "Open PR in browser", value: "open" },
+                { name: "Checkout PR locally", value: "checkout" },
             ],
         },
     ]);
+
+
+
+    if (action === "checkout") {
+        await checkoutPR(prNumber);
+        return;
+    }
 
     const prDetails = await fetchPRDetails(prNumber);
     if (!prDetails) return;
@@ -98,7 +107,7 @@ async function prCommand() {
             yellow(`-${file.deletions}`)
         );
     });
-    
+
 
 
 
