@@ -9,6 +9,8 @@ async function checkoutPR(prNumber) {
     console.log(`\nFetching PR #${prNumber}...`);
     await git.fetch("origin", `pull/${prNumber}/head:${branchName}`);
 
+      
+      
     console.log(`Checking out ${branchName}...`);
     await git.checkout(branchName);
 
