@@ -40,6 +40,7 @@ async function prCommand() {
             choices: [
                 { name: "View PR details", value: "details" },
                 { name: "Open PR in browser", value: "open" },
+                // something more need to add in future
             ],
         },
     ]);
